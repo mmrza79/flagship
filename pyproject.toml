@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subject-independent-gait-phase-emg"
+version = "0.1.0"
+description = "Research infrastructure for subject-independent gait-phase detection from lower-limb sEMG."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
