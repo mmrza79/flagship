@@ -1,0 +1,55 @@
+# Dataset-specific values remain null until verified from source documentation/data.
+data:
+  feature_table: data/processed/features.csv
+  subject_column: subject_id
+  target_column: gait_phase
+  sampling_frequency_hz: null
+
+preprocessing:
+  remove_dc: true
+  bandpass:
+    lowcut_hz: null
+    highcut_hz: null
+    order: 4
+  notch:
+    frequency_hz: null
+    quality_factor: 30.0
+  rectify: false
+  normalization: none
+
+segmentation:
+  window_size_seconds: null
+  overlap_fraction: 0.5
+  drop_incomplete: true
+
+features:
+  selected:
+    - mav
+    - rms
+    - waveform_length
+    - variance
+    - zero_crossings
+    - slope_sign_changes
+    - mean_frequency
+    - median_frequency
+  zero_crossing_threshold: 0.0
+  slope_sign_threshold: 0.0
+
+evaluation:
+  strategy: loso
+  group_k_folds: 5
+
+models:
+  enabled:
+    - logistic_regression
+    - svm
+    - random_forest
+  logistic_regression:
+    max_iter: 1000
+  svm:
+    kernel: rbf
+  random_forest:
+    n_estimators: 200
+
+random_seed: 42
+
